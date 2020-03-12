@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to our dealership!</h1>
+      <p class="lead">We provide best vehicles with affordable price.</p>
+      <hr class="my-4">
+      <button (click)="getAllCars()" type="button" class="btn btn-primary">Explore All Vehicles</button>
+    </div>
+  <div class="row">
+    <div class="col-md-3">
+      <button (click)="sortByPrice()" type="button" class="btn btn-light">Sort By price</button>
+      <hr class="my-4">
+      <p class="well">Filter By</p>
+      <div class="filter-block">
+        <div class="form-group tags categories">
+          <h4>By Make</h4>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByMake('Chevy')"/> Chevy</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByMake('Ford')"/> Ford</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByMake('Mercedes')"/> Mercedes</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByMake('Toyota')"/> Toyota</label></div>
+        </div>
+        <div class="form-group tags topics">
+          <h4>By Color</h4>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByColor('Black')"/> Black</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByColor('Gray')"/> Gray</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByColor('Red')"/> Red</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByColor('White')"/> White</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByColor('Silver')"/> Silver</label></div>
+        </div>
+        <div class=" form-group tags topics">
+          <h4>By Features</h4>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Sun Roof')"/> Sun Roof</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Four Wheel Drive')"/> Four Wheel Drive</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Low Miles')"/> Low Miles</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Navigation')"/> Navigation</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Power Windows')"/> Power Windows</label></div>
+          <div class="checkbox"><label><input type="checkbox" (click)="filterByFeature('Heated Seat')"/> Heated Seat</label></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class=" mb-5" *ngFor="let car of filteredCars">
+          <div class="border border-secondary media">
+            <div class="text-center">
+            <img src="../assets/carImage.png" class="img-thumbnail  .img-fluid" alt="Car Image">
+            </div>
+            <div class="media-body">
+              <h5 class="mt-0">{{car.make}}</h5>
+              <div>Year: {{car.year}}</div>
+              <div>Color: {{car.color}}</div>
+              <div>Price: {{car.price| currency}}</div>
+              <div class="font-weight-bold">Features</div>
+              <div *ngIf="car.hasSunroof"> Sun Roof</div>
+              <div *ngIf="car.fourWheelDrive"> Four Wheel Drive</div>
+              <div *ngIf="car.hasLowMiles"> Low Miles</div>
+              <div *ngIf="car.hasNavigation"> Navigation</div>
+              <div *ngIf="car.hasPowerWindows"> Power Windows</div>
+              <div *ngIf="car.hasHeatedSeats"> Heated Seats</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
