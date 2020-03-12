@@ -1,10 +1,9 @@
 # CarDealership
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+This project was generated with Angular CLI version 9.0.6. This is simple project for demo. So I have try to touch most of features in some extend like ui design using bootstrap, ng-routing concept, pipe, service, web api call.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run 'ng serve --proxy-config proxy.conf.json --port 4201'. proxy.conf.json used to define web api proxy and --port 4201 to open in another port if port 4200 is in already use
 
 ## Code scaffolding
 
@@ -17,6 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Due to short of time I could write test case.
 
 ## Running end-to-end tests
 
